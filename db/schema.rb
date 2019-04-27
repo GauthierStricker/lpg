@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_125026) do
+ActiveRecord::Schema.define(version: 2019_04_27_125227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activity_logs", force: :cascade do |t|
+    t.boolean "done"
+    t.integer "spent_klr"
+    t.string "comment"
+    t.date "date"
+    t.bigint "area_id"
+    t.bigint "daily_journey_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_activity_logs_on_area_id"
+    t.index ["daily_journey_id"], name: "index_activity_logs_on_daily_journey_id"
+  end
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
@@ -191,6 +204,8 @@ ActiveRecord::Schema.define(version: 2019_04_27_125026) do
     t.index ["daily_journey_id"], name: "index_weight_logs_on_daily_journey_id"
   end
 
+  add_foreign_key "activity_logs", "areas"
+  add_foreign_key "activity_logs", "daily_journeys"
   add_foreign_key "areas", "heros"
   add_foreign_key "challenge_logs", "challenges"
   add_foreign_key "challenge_logs", "daily_journeys"
