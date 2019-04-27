@@ -11,4 +11,7 @@ class Hero < ApplicationRecord
 
   # Validations
   validates :user, :name, :weight, :total_money, :presence => true
+
+  #Avatar Uploader
+  mount_uploader :avatar, PhotoUploader
 end

@@ -1,5 +1,7 @@
 <h1>Hello Hero</h1>
 
+<%= cl_image_tag @hero.avatar, height: 75, width: 75, crop: :fill, :radius => "max" %>
+
 <h2><%= @hero.name %></h2>
 <h2><%= @hero.weight %></h2>
 <h2><%= @hero.total_money %></h2>
