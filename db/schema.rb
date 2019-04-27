@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_124718) do
+ActiveRecord::Schema.define(version: 2019_04_27_124905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +165,18 @@ ActiveRecord::Schema.define(version: 2019_04_27_124718) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "weight_logs", force: :cascade do |t|
+    t.float "value"
+    t.string "comment"
+    t.date "date"
+    t.bigint "area_id"
+    t.bigint "daily_journey_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_weight_logs_on_area_id"
+    t.index ["daily_journey_id"], name: "index_weight_logs_on_daily_journey_id"
+  end
+
   add_foreign_key "areas", "heros"
   add_foreign_key "challenge_logs", "challenges"
   add_foreign_key "challenge_logs", "daily_journeys"
@@ -183,4 +195,6 @@ ActiveRecord::Schema.define(version: 2019_04_27_124718) do
   add_foreign_key "quests", "areas"
   add_foreign_key "quests", "heros"
   add_foreign_key "tasks", "daily_journeys"
+  add_foreign_key "weight_logs", "areas"
+  add_foreign_key "weight_logs", "daily_journeys"
 end
