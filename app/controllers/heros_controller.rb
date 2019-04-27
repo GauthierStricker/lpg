@@ -54,6 +54,6 @@ class HerosController < ApplicationController
     def hero_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-      params.require(:hero).permit(:name, :weight, :total_money)
+      params.require(:hero).permit(:name, :weight, :total_money, :avatar)
   end
 end

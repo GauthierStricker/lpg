@@ -1,15 +1,10 @@
 <h1></h1>
 
-
-<%= form_for(@hero) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :weight %>
-  <%= f.number_field :weight %>
-
-   <%= f.label :total_money %>
-  <%= f.number_field :total_money %>
-
+<%= simple_form_for(@hero) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :weight %>
+  <%= f.input :total_money %>
+  <%= f.input :avatar %>
+  <%= f.input :avatar_cache, as: :hidden %>
   <%= f.submit %>
 <% end %>
