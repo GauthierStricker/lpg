@@ -1,0 +1,9 @@
+<h1>Hello Hero</h1>
+
+<h2><%= @hero.name %></h2>
+<h2><%= @hero.weight %></h2>
+<h2><%= @hero.total_money %></h2>
+<h3>This hero is linked to <%= @hero.user.email  %></h3>
+
+<h4><%= link_to "Edit Hero", edit_hero_path %></h4>
+<h4><%= link_to "Delete Hero", hero_path, method: :delete, data: { confirm: "Are you sure?" } %></h4>

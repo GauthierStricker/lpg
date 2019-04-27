@@ -2,7 +2,7 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to "Home", root_path, class: "nav-link" %></li>
+        <li><%= link_to "Home", root_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         <% else %>

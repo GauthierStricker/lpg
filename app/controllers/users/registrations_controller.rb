@@ -53,7 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    root_path # Or :prefix_to_your_route
+    new_hero_path # Or :prefix_to_your_route
   end
 
   # The path used after sign up for inactive accounts.
