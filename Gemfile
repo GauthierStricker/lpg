@@ -18,6 +18,8 @@ gem 'webpacker'
 
 gem "rubocop-rails_config"
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
