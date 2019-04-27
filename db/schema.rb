@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_125227) do
+ActiveRecord::Schema.define(version: 2019_04_27_125401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,20 @@ ActiveRecord::Schema.define(version: 2019_04_27_125227) do
     t.index ["quest_id"], name: "index_milestones_on_quest_id"
   end
 
+  create_table "money_logs", force: :cascade do |t|
+    t.float "gained_money"
+    t.float "spend_money"
+    t.float "balanced_money"
+    t.string "comment"
+    t.date "date"
+    t.bigint "area_id"
+    t.bigint "daily_journey_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_money_logs_on_area_id"
+    t.index ["daily_journey_id"], name: "index_money_logs_on_daily_journey_id"
+  end
+
   create_table "mood_logs", force: :cascade do |t|
     t.integer "morning_value"
     t.integer "evening_value"
@@ -219,6 +233,8 @@ ActiveRecord::Schema.define(version: 2019_04_27_125227) do
   add_foreign_key "meditation_logs", "areas"
   add_foreign_key "meditation_logs", "daily_journeys"
   add_foreign_key "milestones", "quests"
+  add_foreign_key "money_logs", "areas"
+  add_foreign_key "money_logs", "daily_journeys"
   add_foreign_key "mood_logs", "areas"
   add_foreign_key "mood_logs", "daily_journeys"
   add_foreign_key "quests", "areas"
