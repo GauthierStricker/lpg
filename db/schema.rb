@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_124905) do
+ActiveRecord::Schema.define(version: 2019_04_27_125026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,20 @@ ActiveRecord::Schema.define(version: 2019_04_27_124905) do
     t.index ["hero_id"], name: "index_quests_on_hero_id"
   end
 
+  create_table "sleep_logs", force: :cascade do |t|
+    t.time "start_time"
+    t.time "end_time"
+    t.float "sleep_duration"
+    t.date "date"
+    t.string "comment"
+    t.bigint "daily_journey_id"
+    t.bigint "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_sleep_logs_on_area_id"
+    t.index ["daily_journey_id"], name: "index_sleep_logs_on_daily_journey_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.boolean "done"
@@ -194,6 +208,8 @@ ActiveRecord::Schema.define(version: 2019_04_27_124905) do
   add_foreign_key "mood_logs", "daily_journeys"
   add_foreign_key "quests", "areas"
   add_foreign_key "quests", "heros"
+  add_foreign_key "sleep_logs", "areas"
+  add_foreign_key "sleep_logs", "daily_journeys"
   add_foreign_key "tasks", "daily_journeys"
   add_foreign_key "weight_logs", "areas"
   add_foreign_key "weight_logs", "daily_journeys"
