@@ -1,0 +1,15 @@
+<h1></h1>
+
+
+<%= form_for(@hero) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :weight %>
+  <%= f.number_field :weight %>
+
+   <%= f.label :total_money %>
+  <%= f.number_field :total_money %>
+
+  <%= f.submit %>
+<% end %>

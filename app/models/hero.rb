@@ -10,5 +10,5 @@ class Hero < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
   # Validations
-  validates :user, :name, :presence => true
+  validates :user, :name, :weight, :total_money, :presence => true
 end
