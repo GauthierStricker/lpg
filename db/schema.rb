@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_124543) do
+ActiveRecord::Schema.define(version: 2019_04_27_124718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,16 @@ ActiveRecord::Schema.define(version: 2019_04_27_124543) do
     t.index ["hero_id"], name: "index_quests_on_hero_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.boolean "done"
+    t.date "date"
+    t.bigint "daily_journey_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["daily_journey_id"], name: "index_tasks_on_daily_journey_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -172,4 +182,5 @@ ActiveRecord::Schema.define(version: 2019_04_27_124543) do
   add_foreign_key "mood_logs", "daily_journeys"
   add_foreign_key "quests", "areas"
   add_foreign_key "quests", "heros"
+  add_foreign_key "tasks", "daily_journeys"
 end
