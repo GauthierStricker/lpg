@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_123009) do
+ActiveRecord::Schema.define(version: 2019_04_27_124318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2019_04_27_123009) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "hero_id"
+    t.index ["hero_id"], name: "index_areas_on_hero_id"
   end
 
   create_table "challenges", force: :cascade do |t|
@@ -101,6 +103,18 @@ ActiveRecord::Schema.define(version: 2019_04_27_123009) do
     t.index ["quest_id"], name: "index_milestones_on_quest_id"
   end
 
+  create_table "mood_logs", force: :cascade do |t|
+    t.integer "morning_value"
+    t.integer "evening_value"
+    t.date "date"
+    t.bigint "daily_journey_id"
+    t.bigint "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_mood_logs_on_area_id"
+    t.index ["daily_journey_id"], name: "index_mood_logs_on_daily_journey_id"
+  end
+
   create_table "quests", force: :cascade do |t|
     t.string "name"
     t.boolean "acheived"
@@ -129,6 +143,7 @@ ActiveRecord::Schema.define(version: 2019_04_27_123009) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "areas", "heros"
   add_foreign_key "challenges", "areas"
   add_foreign_key "challenges", "heros"
   add_foreign_key "daily_journeys", "heros"
@@ -139,6 +154,8 @@ ActiveRecord::Schema.define(version: 2019_04_27_123009) do
   add_foreign_key "meditation_logs", "areas"
   add_foreign_key "meditation_logs", "daily_journeys"
   add_foreign_key "milestones", "quests"
+  add_foreign_key "mood_logs", "areas"
+  add_foreign_key "mood_logs", "daily_journeys"
   add_foreign_key "quests", "areas"
   add_foreign_key "quests", "heros"
 end
