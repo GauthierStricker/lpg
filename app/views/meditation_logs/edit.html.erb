@@ -1,0 +1,8 @@
+<h1></h1>
+
+<%= @meditation_log.duration  %>
+<%= simple_form_for(@meditation_log) do |f| %>
+  <%= f.input :done %>
+  <%= f.input :duration %>
+  <%= f.submit %>
+<% end %>
