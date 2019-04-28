@@ -132,7 +132,7 @@ ActiveRecord::Schema.define(version: 2019_04_28_150612) do
 
   create_table "money_logs", force: :cascade do |t|
     t.float "gained_money"
-    t.float "spend_money"
+    t.float "spent_money"
     t.float "balanced_money"
     t.string "comment"
     t.date "date"
