@@ -2,3 +2,15 @@
 <h2> <%= @daily_journey.hero.user.email %></h2>
 <p>Date : <%= @daily_journey.date %>
 
+
+
+<h1>Infos Sleep Log</h1>
+<p>Linked to Daily Journey : <%= @daily_journey.sleep_log.date  %> <%= @daily_journey.hero.name  %> <%= @daily_journey.sleep_log.id  %></p>
+<p><%= @daily_journey.sleep_log.start_time  %></p>
+<p><%= @daily_journey.sleep_log.end_time  %></p>
+<p><%= @daily_journey.sleep_log.sleep_duration %></p>
+<p><%= @daily_journey.sleep_log.comment %></p>
+<p><%= @daily_journey.sleep_log.date %></p>
+
+
+
