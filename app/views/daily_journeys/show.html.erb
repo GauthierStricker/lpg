@@ -30,3 +30,15 @@
 <% if @daily_journey.locked == false %>
 <p><%= link_to "Edit Weight Log :", edit_weight_log_path(@daily_journey.weight_log) %></p>
 <% end %>
+
+<h3>Infos Activity Log</h3>
+<p>Relation verification - Linked to Daily Journey : <%= @daily_journey.activity_log.date  %> <%= @daily_journey.hero.name  %> <%= @daily_journey.activity_log.id  %></p>
+
+<p><%= @daily_journey.activity_log.done  %></p>
+<p><%= @daily_journey.activity_log.spent_klr %></p>
+<p><%= @daily_journey.activity_log.comment %></p>
+<%= cl_image_tag @daily_journey.activity_log.proof, height: 200, width: 200, crop: :fill%>
+
+<% if @daily_journey.locked == false %>
+<p><%= link_to "Edit Activity Log :", edit_activity_log_path(@daily_journey.activity_log) %></p>
+<% end %>
