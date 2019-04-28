@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   get 'daily_journeys/today', to: 'daily_journeys#show_today_journey', as: :daily_journey_today
 
   resources :sleep_logs, only: [ :edit, :update ]
+
+  resources :weight_logs, only: [ :edit, :update ]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

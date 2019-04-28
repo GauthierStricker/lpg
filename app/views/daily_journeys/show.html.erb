@@ -5,8 +5,8 @@
 
 
 
-<h1>Infos Sleep Log</h1>
-<p>Linked to Daily Journey : <%= @daily_journey.sleep_log.date  %> <%= @daily_journey.hero.name  %> <%= @daily_journey.sleep_log.id  %></p>
+<h3>Infos Sleep Log</h3>
+<p>Relation verification - Linked to Daily Journey : <%= @daily_journey.sleep_log.date  %> <%= @daily_journey.hero.name  %> <%= @daily_journey.sleep_log.id  %></p>
 
 <p><%= @daily_journey.sleep_log.start_time  %></p>
 <p><%= @daily_journey.sleep_log.end_time  %></p>
@@ -15,5 +15,18 @@
 <p><%= @daily_journey.sleep_log.date %></p>
 
 <% if @daily_journey.locked == false %>
-<p><%= link_to "Edit SleepLog :", edit_sleep_log_path(@daily_journey.sleep_log) %></p>
+<p><%= link_to "Edit Sleep Log :", edit_sleep_log_path(@daily_journey.sleep_log) %></p>
+<% end %>
+
+
+<h3>Infos Weight Log</h3>
+<p>Relation verification - Linked to Daily Journey : <%= @daily_journey.weight_log.date  %> <%= @daily_journey.hero.name  %> <%= @daily_journey.weight_log.id  %></p>
+
+<p><%= @daily_journey.weight_log.value  %></p>
+<p><%= @daily_journey.weight_log.weight_variation %></p>
+<p><%= @daily_journey.weight_log.comment %></p>
+<p><%= @daily_journey.weight_log.date %></p>
+
+<% if @daily_journey.locked == false %>
+<p><%= link_to "Edit Weight Log :", edit_weight_log_path(@daily_journey.weight_log) %></p>
 <% end %>
