@@ -62,5 +62,15 @@
 <p><%= @daily_journey.mood_log.evening_value %></p>
 
 <% if @daily_journey.locked == false %>
-<p><%= link_to "Edit MoodLog :", edit_mood_log_path(@daily_journey.mood_log) %></p>
+<p><%= link_to "Edit Mood Log :", edit_mood_log_path(@daily_journey.mood_log) %></p>
+<% end %>
+
+<h3>Infos Meditation Log</h3>
+<p>Relation verification - Linked to Daily Journey : <%= @daily_journey.meditation_log.date  %> <%= @daily_journey.hero.name %> <%= @daily_journey.meditation_log.id  %></p>
+
+<p><%= @daily_journey.meditation_log.done  %></p>
+<p><%= @daily_journey.meditation_log.duration %></p>
+
+<% if @daily_journey.locked == false %>
+<p><%= link_to "Edit Meditation Log :", edit_meditation_log_path(@daily_journey.meditation_log) %></p>
 <% end %>

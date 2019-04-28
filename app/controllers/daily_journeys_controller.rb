@@ -99,8 +99,14 @@ class DailyJourneysController < ApplicationController
     @daily_journey.mood_log = @mood_log
     @mood_log.date = @daily_journey.date
 
+    # Instanciation of MeditationLog
+    @meditation_log = MeditationLog.new
+    @daily_journey.meditation_log = @meditation_log
+    @meditation_log.date = @daily_journey.date
+    @meditation_log.done = false
+
     # Validation and Redirection
-    if @daily_journey.save && @sleep_log.save && @weight_log.save && @activity_log.save && @mood_log.save
+    if @daily_journey.save && @sleep_log.save && @weight_log.save && @activity_log.save && @mood_log.save && @meditation_log.save
       show_today_journey
     else
       redirect_to hero_path

@@ -5,5 +5,5 @@ class MeditationLog < ApplicationRecord
   belongs_to :area, optional: true
 
   # Validations
-  validates :daily_journey, :date, :done, :presence => true
+  validates :daily_journey, :date, :presence => true
 end
