@@ -42,3 +42,15 @@
 <% if @daily_journey.locked == false %>
 <p><%= link_to "Edit Activity Log :", edit_activity_log_path(@daily_journey.activity_log) %></p>
 <% end %>
+
+<h3>Infos Money Log</h3>
+<p>Relation verification - Linked to Daily Journey : <%= @daily_journey.money_log.date  %> <%= @daily_journey.hero.name  %> <%= @daily_journey.money_log.id  %></p>
+
+<p><%= @daily_journey.money_log.gained_money  %></p>
+<p><%= @daily_journey.money_log.spent_money %></p>
+<p><%= @daily_journey.money_log.balanced_money %></p>
+<p><%= @daily_journey.money_log.comment %></p>
+
+<% if @daily_journey.locked == false %>
+<p><%= link_to "Edit Money Log :", edit_money_log_path(@daily_journey.money_log) %></p>
+<% end %>

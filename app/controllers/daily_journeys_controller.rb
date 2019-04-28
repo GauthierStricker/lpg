@@ -87,8 +87,15 @@ class DailyJourneysController < ApplicationController
     @activity_log.done = false
     @activity_log.spent_klr = 0.0
 
+    # Instanciation of MoneyLog
+    @money_log = MoneyLog.new
+    @daily_journey.money_log = @money_log
+    @money_log.date = @daily_journey.date
+    @money_log.gained_money = 0.0
+    @money_log.spent_money = 0.0
+
     # Validation and Redirection
-    if @daily_journey.save && @sleep_log.save && @weight_log.save && @activity_log.save
+    if @daily_journey.save && @sleep_log.save && @weight_log.save && @activity_log.save && @money_log.save
       show_today_journey
     else
       redirect_to hero_path
