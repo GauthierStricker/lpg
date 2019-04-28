@@ -3,34 +3,34 @@ class SleepLogsController < ApplicationController
 
   #Before actions
   #Actions
-  def index
+  #def index
     # Need to had 1:Many through
-  end
+  #end
 
-  def show
+  #def show
     #Doesn't seem to exist
-  end
+  #end
 
-  def new
+  #def new
     # Not sure it's usefull
-    if @daily_journey.sleep_log == nil
-      @sleep_log = @daily_journey.build_sleep_log
-    else
-      redirect_to daily_journey_today_path
-    end
-  end
+   # if @daily_journey.sleep_log == nil
+    #  @sleep_log = @daily_journey.build_sleep_log
+    #else
+     # redirect_to daily_journey_today_path
+    #end
+  #end
 
-  def create
+  #def create
     # Not sure it's usefull
-    @sleep_log = Sleeplog.new(sleep_log_params)
-    @sleep_log.daily_journey = @daily_journey
-    @sleep_log.date = @daily_journey.date
-    if @sleep_log.save
-      redirect_to daily_journey_today_path
-    else
-      render :new
-    end
-  end
+   # @sleep_log = Sleeplog.new(sleep_log_params)
+    #@sleep_log.daily_journey = @daily_journey
+    #@sleep_log.date = @daily_journey.date
+    #if @sleep_log.save
+     # redirect_to daily_journey_today_path
+    #else
+     # render :new
+    #end
+  #end
 
   def edit
     @sleep_log = SleepLog.find(params[:id])
@@ -51,9 +51,6 @@ class SleepLogsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
   end
 
   #Private
