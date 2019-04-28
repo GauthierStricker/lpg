@@ -10,5 +10,8 @@ Rails.application.routes.draw do
 
   #TODO - Change route so it has not the heroS and work on hero + add all destroy validations when deleting hero in model
   resources :heros, except: [:index]
+
+  resources :daily_journeys, only: [:index, :show, :edit, :update]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

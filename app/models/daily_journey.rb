@@ -11,5 +11,5 @@ class DailyJourney < ApplicationRecord
   has_many :activity_logs, dependent: :destroy
 
   # Validations
-  validates :hero, :date, :locked, :presence => true
+  validates :hero, :date, :presence => true
 end
