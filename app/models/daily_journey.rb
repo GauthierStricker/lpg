@@ -8,7 +8,7 @@ class DailyJourney < ApplicationRecord
   has_one :task
   has_one :weight_log, dependent: :destroy
   has_one :sleep_log, dependent: :destroy
-  has_one :activity_log#, dependent: :destroy
+  has_one :activity_log, dependent: :destroy
 
   # Validations
   validates :hero, :date, :presence => true

@@ -80,8 +80,15 @@ class DailyJourneysController < ApplicationController
     @weight_log.date = @daily_journey.date
     @weight_log.value = @hero.weight
 
+    # Instanciation of ActivityLog
+    @activity_log = ActivityLog.new
+    @daily_journey.activity_log = @activity_log
+    @activity_log.date = @daily_journey.date
+    @activity_log.done = false
+    @activity_log.spent_klr = 0.0
+
     # Validation and Redirection
-    if @daily_journey.save && @sleep_log.save && @weight_log.save
+    if @daily_journey.save && @sleep_log.save && @weight_log.save && @activity_log.save
       show_today_journey
     else
       redirect_to hero_path

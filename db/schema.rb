@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_28_143837) do
+ActiveRecord::Schema.define(version: 2019_04_28_150612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_04_28_143837) do
     t.bigint "daily_journey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "proof"
     t.index ["area_id"], name: "index_activity_logs_on_area_id"
     t.index ["daily_journey_id"], name: "index_activity_logs_on_daily_journey_id"
   end

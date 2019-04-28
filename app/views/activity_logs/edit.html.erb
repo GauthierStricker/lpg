@@ -1,0 +1,10 @@
+<h1></h1>
+
+<%= simple_form_for(@activity_log) do |f| %>
+  <%= f.input :done %>
+  <%= f.input :spent_klr %>
+  <%= f.input :comment %>
+  <%= f.input :proof %>
+  <%= f.input :proof_cache, as: :hidden %>
+  <%= f.submit %>
+<% end %>
