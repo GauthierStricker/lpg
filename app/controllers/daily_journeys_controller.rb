@@ -41,7 +41,7 @@ class DailyJourneysController < ApplicationController
   # Specific Actions
 
   def lock
-    #Change la value lock à true
+    #Change la value lock à true + Calculer les valeurs finales de daily Journey + update
   end
 
   # def cheatcode
@@ -55,11 +55,19 @@ class DailyJourneysController < ApplicationController
   end
 
   def initialize_today_journey
+    # To do : Add the lock mechanism
+    # To do : Ajouter les instanciations des related objects
+    # To do v2: Mettre dans un service object dédié
     @daily_journey = DailyJourney.new
     @daily_journey.hero = @hero
     @daily_journey.date = Date.today
-    @locked = false
-    if @daily_journey.save
+    @daily_journey.locked = false
+
+    @sleep_log = SleepLog.new
+    @daily_journey.sleep_log = @sleep_log
+    @sleep_log.date = @daily_journey.date
+
+    if @daily_journey.save && @sleep_log.save
       show_today_journey
     else
       redirect_to hero_path
