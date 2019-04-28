@@ -45,7 +45,6 @@ class SleepLogsController < ApplicationController
     ## TO DO : FIX TIMEPICKER AND ENSURE NO DEFAULT VALUE IS PASSED IN FORMS
     update_sleep_duration
     if @sleep_log.update(sleep_log_params)
-      update_sleep_duration
       # TO DO : It redirect with the id daily journey in the URL. To fix for lisibility.
       redirect_to daily_journey_path(@sleep_log.daily_journey)
     else
