@@ -13,7 +13,7 @@ class HerosController < ApplicationController
       @hero = current_user.build_hero
       render layout: "hero_onboarding"
     else
-      redirect_to root_path
+      redirect_to hero_path
     end
   end
 
@@ -21,6 +21,7 @@ class HerosController < ApplicationController
     @hero = Hero.new(hero_params)
     @hero.user = current_user
     if @hero.save
+    #TO DO : Call the daily journey controller to instanciate the first daily journey
       redirect_to hero_path(@hero)
     else
       render :new
@@ -55,5 +56,5 @@ class HerosController < ApplicationController
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
       params.require(:hero).permit(:name, :weight, :total_money, :avatar)
-  end
+    end
 end
