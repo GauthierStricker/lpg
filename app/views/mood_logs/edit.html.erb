@@ -1,0 +1,7 @@
+<h1></h1>
+
+<%= simple_form_for(@mood_log) do |f| %>
+  <%= f.input :morning_value, input_html: { minlength: 0, maxlength: 10 } %>
+  <%= f.input :evening_value, input_html: { min: '0', max: '10' } %>
+  <%= f.submit %>
+<% end %>

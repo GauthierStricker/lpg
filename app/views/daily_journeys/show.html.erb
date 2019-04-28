@@ -54,3 +54,13 @@
 <% if @daily_journey.locked == false %>
 <p><%= link_to "Edit Money Log :", edit_money_log_path(@daily_journey.money_log) %></p>
 <% end %>
+
+<h3>Infos Mood Log</h3>
+<p>Relation verification - Linked to Daily Journey : <%= @daily_journey.mood_log.date  %> <%= @daily_journey.hero.name  %> <%= @daily_journey.mood_log.id  %></p>
+
+<p><%= @daily_journey.mood_log.morning_value  %></p>
+<p><%= @daily_journey.mood_log.evening_value %></p>
+
+<% if @daily_journey.locked == false %>
+<p><%= link_to "Edit MoodLog :", edit_mood_log_path(@daily_journey.mood_log) %></p>
+<% end %>

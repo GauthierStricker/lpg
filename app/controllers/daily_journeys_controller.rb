@@ -94,8 +94,13 @@ class DailyJourneysController < ApplicationController
     @money_log.gained_money = 0.0
     @money_log.spent_money = 0.0
 
+    # Instanciation of MoodLog
+    @mood_log = MoodLog.new
+    @daily_journey.mood_log = @mood_log
+    @mood_log.date = @daily_journey.date
+
     # Validation and Redirection
-    if @daily_journey.save && @sleep_log.save && @weight_log.save && @activity_log.save && @money_log.save
+    if @daily_journey.save && @sleep_log.save && @weight_log.save && @activity_log.save && @mood_log.save
       show_today_journey
     else
       redirect_to hero_path
