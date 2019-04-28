@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   resources :daily_journeys, only: [:index, :show, :edit, :update]
 
+  get 'daily_journeys/today', to: 'daily_journeys#show_today_journey', as: :daily_journey_today
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

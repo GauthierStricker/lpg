@@ -9,12 +9,17 @@ class DailyJourneysController < ApplicationController
   end
 
   def show
-    #Check if the hero's user has a daily_journey for the queried date
+    # Check if the hero's user has a daily_journey for the queried date
     if @daily_journey = @hero.daily_journeys.find_by(date: params[:date])
     else
-    #if not, redirect to the hero profil.
-    #To modify => Should redirect to Today daily journey for hero
-      redirect_to hero_path
+      show_today_journey
+    end
+  end
+
+  def show_today_journey
+    if @daily_journey = today_journey_exist?
+    else
+      initialize_today_journey
     end
   end
 
@@ -35,13 +40,6 @@ class DailyJourneysController < ApplicationController
 
   # Specific Actions
 
-  def today
-    # Must be the root page when connecting
-    # Fall back v.0 => Si le CRON n'a pas créé le daily journey d'ajd, on le créé + on lock celui d'hier
-    # Fall back v.1 => Si le CRON n'a pas créé le daily journey d'ajd, on regarde le dernier existant, on créé tous ceux jusque ajd + on les lock
-    # ou un before action ?
-  end
-
   def lock
     #Change la value lock à true
   end
@@ -55,6 +53,23 @@ class DailyJourneysController < ApplicationController
   def set_hero
     @hero = current_user.hero
   end
+
+  def initialize_today_journey
+    @daily_journey = DailyJourney.new
+    @daily_journey.hero = @hero
+    @daily_journey.date = Date.today
+    @locked = false
+    if @daily_journey.save
+      show_today_journey
+    else
+      redirect_to hero_path
+    end
+  end
+
+  def today_journey_exist?
+  @hero.daily_journeys.find_by(date: Date.today)
+  end
+
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
   def daily_journey_params

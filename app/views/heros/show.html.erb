@@ -13,6 +13,8 @@
 
 
 <h1>TO KILL AFTER</h1>
+
+<h3><%= link_to "TODAY", daily_journey_today_path %></h3>
 <% @hero.daily_journeys.each do |daily_journey| %>
   <li><%= link_to "Date : #{daily_journey.date}", daily_journey_path(date: daily_journey.date) %></li>
 <% end %>
