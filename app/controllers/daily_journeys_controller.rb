@@ -15,6 +15,8 @@
       if @daily_journey = @hero.daily_journeys.find_by(date: queried_date)
       else show_today_journey
       end
+    elsif params[:id] = "today"
+      show_today_journey
     elsif @daily_journey = @hero.daily_journeys.find(params[:id])
     else
       show_today_journey
