@@ -8,13 +8,15 @@
   def index
   end
 
-  def show
+   def show
     # Check if the hero's user has a daily_journey for the queried date
     if params[:date]
       queried_date = Date.parse(params[:date])
       if @daily_journey = @hero.daily_journeys.find_by(date: queried_date)
       else show_today_journey
       end
+    elsif params[:id] = "today"
+      show_today_journey
     elsif @daily_journey = @hero.daily_journeys.find(params[:id])
     else
       show_today_journey
