@@ -1,0 +1,18 @@
+function pickDate() {
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, {
+  onSelect: loadQueriedDailyJourney
+});
+
+  });
+}
+
+function loadQueriedDailyJourney(date){
+    var heroId = document.querySelector('.datepicker').dataset.heroid
+    var formatted_date = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate()
+    var href = "/daily_journeys/" + heroId + "?date=" + formatted_date
+     window.location = href
+  }
+export { pickDate };
+

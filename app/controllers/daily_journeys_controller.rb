@@ -1,4 +1,4 @@
-class DailyJourneysController < ApplicationController
+  class DailyJourneysController < ApplicationController
   # OUT OF SCOPE : Today and lock management vs. Weekly Prep
 
   # IMPORTANT : ADD PUNDIT PROTECTION
@@ -10,10 +10,15 @@ class DailyJourneysController < ApplicationController
 
   def show
     # Check if the hero's user has a daily_journey for the queried date
-    if @daily_journey = @hero.daily_journeys.find_by(date: params[:date])
+    if params[:date]
+      queried_date = Date.parse(params[:date])
+      if @daily_journey = @hero.daily_journeys.find_by(date: queried_date)
+      else show_today_journey
+      end
+    elsif @daily_journey = @hero.daily_journeys.find(params[:id])
     else
       show_today_journey
-    end
+      end
   end
 
   def show_today_journey
