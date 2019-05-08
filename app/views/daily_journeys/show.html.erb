@@ -1,7 +1,146 @@
-<h1> Daily Journey - <%= @daily_journey.hero.name %></h1>
-<h2> <%= @daily_journey.hero.user.email %></h2>
-<p>Date : <%= @daily_journey.date %></p>
-<p>Date : <%= @daily_journey.id %></p>
+
+<div class="row">
+  <div class="col s12">
+    <h4 class="center-align"> Daily Journey - <%= @daily_journey.hero.name %></h4>
+  </div>
+  <div class="col s6">
+    <p class="center-align">Date : <%= @daily_journey.date %></p>
+  </div>
+  <div class="col s6">
+    <p class="center-align">Date : <%= @daily_journey.id %></p>
+  </div>
+</div>
+
+<div><input type="text" class="datepicker" data-heroid="<%= @hero.id %>"></div>
+
+<div class="section">
+    <h5>Section 1</h5>
+    <div class="row">
+      <div class="col s12 m4">
+
+        <div class="card" style="height:320px">
+          <div class="card-image">
+            <%= image_tag "sleep.jpg", alt: "sleep" %>
+            <span class="card-title">Sleep Log</span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>
+          </div>
+          <div class="card-content">
+            <p><%= @daily_journey.sleep_log.start_time  %></p>
+            <p><%= @daily_journey.sleep_log.end_time  %></p>
+            <p><%= @daily_journey.sleep_log.sleep_duration %></p>
+            <p><%= @daily_journey.sleep_log.comment %></p>
+          </div>
+        </div>
+
+      </div>
+      <div class="col s12 m4">
+
+        <div class="card" style="height:320px">
+          <div class="card-image">
+            <%= image_tag "sleep.jpg", alt: "sleep" %>
+            <span class="card-title">Activity Log</span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>
+          </div>
+          <div class="card-content">
+            <p><%= @daily_journey.activity_log.done  %></p>
+            <p><%= @daily_journey.activity_log.spent_klr %></p>
+            <p><%= @daily_journey.activity_log.comment %></p>
+            <span class="activator grey-text text-darken-4 right" style="font-size: 14px">see more</span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Activity Log<i class="material-icons right">close</i></span>
+            <%= cl_image_tag @daily_journey.activity_log.proof, height: 200, width: 200, crop: :fill%>
+          </div>
+        </div>
+
+      </div>
+      <div class="col s12 m4">
+
+        <div class="card" style="height:320px">
+          <div class="card-image">
+            <%= image_tag "sleep.jpg", alt: "sleep" %>
+            <span class="card-title">Weight Log</span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>
+          </div>
+          <div class="card-content">
+            <p><%= @daily_journey.weight_log.value  %></p>
+            <p><%= @daily_journey.weight_log.weight_variation %></p>
+            <p><%= @daily_journey.weight_log.comment %></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <div class="section">
+    <h5>Section 2</h5>
+    <div class="row">
+      <div class="col s12 m4">
+
+        <div class="card" style="height:320px">
+          <div class="card-image">
+            <%= image_tag "sleep.jpg", alt: "sleep" %>
+            <span class="card-title">Mood Log</span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>
+          </div>
+          <div class="card-content">
+            <p><%= @daily_journey.mood_log.morning_value  %></p>
+            <p><%= @daily_journey.mood_log.evening_value %></p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col s12 m4">
+
+        <div class="card" style="height:320px">
+          <div class="card-image">
+            <%= image_tag "sleep.jpg", alt: "sleep" %>
+            <span class="card-title">Meditation Log</span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>
+          </div>
+          <div class="card-content">
+            <p><%= @daily_journey.meditation_log.done  %></p>
+            <p><%= @daily_journey.meditation_log.duration %></p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col s12 m4">
+
+        <div class="card" style="height:320px">
+          <div class="card-image">
+            <%= image_tag "sleep.jpg", alt: "sleep" %>
+            <span class="card-title">Money Log</span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>
+          </div>
+          <div class="card-content">
+            <p><%= @daily_journey.money_log.gained_money  %></p>
+            <p><%= @daily_journey.money_log.spent_money %></p>
+            <p><%= @daily_journey.money_log.balanced_money %></p>
+            <span class="activator grey-text text-darken-4 right" style="font-size: 14px">see more</span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Activity Log<i class="material-icons right">close</i></span>
+            <p><%= @daily_journey.money_log.comment %></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+    </div>
+  <div class="divider"></div>
+
+
+
+
+
+
+
 
 
 
