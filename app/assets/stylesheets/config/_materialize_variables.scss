@@ -34,7 +34,7 @@
 // 1. Colors
 // ==========================================================================
 
-$primary-color: color("blue", "lighten-2") !default;
+$primary-color: color("deep-purple", "lighten-2") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
@@ -42,8 +42,10 @@ $secondary-color: color("orange", "lighten-1") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
+$body-color: #EEEEEE !default;
 
-$body-color: #1F2738 !default;
+//DARK MODE
+//$body-color: #1F2738 !default;
 
 
 // 2. Badges
@@ -244,7 +246,7 @@ $element-bottom-margin: ($gutter-width*2)/3 !default;
 // 13. Navigation Bar
 // ==========================================================================
 
-$navbar-height: 64px !default;
+$navbar-height: 56px !default;
 $navbar-line-height: $navbar-height !default;
 $navbar-height-mobile: 56px !default;
 $navbar-line-height-mobile: $navbar-height-mobile !default;
@@ -255,16 +257,20 @@ $navbar-brand-font-size: 2.1rem !default;
 // 14. Side Navigation
 // ==========================================================================
 
-$sidenav-width: 300px !default;
+$sidenav-width: 200px !default;
 $sidenav-font-size: 14px !default;
-$sidenav-font-color: #9398A2 !default;
-$sidenav-bg-color: #273146 !default;
+$sidenav-font-color: rgba(0,0,0,.87) !default;
+$sidenav-bg-color: #fff !default;
 $sidenav-padding: 16px !default;
 $sidenav-item-height: 48px !default;
 $sidenav-line-height: $sidenav-item-height !default;
 
 // $sidenav-bg-color: #fff !default;
 // $sidenav-font-color: rgba(0,0,0,.87) !default;
+
+// DARK MODE
+// $sidenav-bg-color: #273146 !default;
+// $sidenav-font-color: #9398A2 !default;
 
 
 // 15. Photo Slider

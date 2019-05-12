@@ -13,12 +13,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function preventScrolling() {
+  if (document.width < 992) {
   document.body.style.width = '100%';
   document.body.style.position = 'fixed';
+  };
 }
 
 function allowScrolling() {
+   if (document.width < 992) {
   document.body.style.removeProperty("width");
   document.body.style.removeProperty("position");
+  };
 }
 export { sideNavMobile };

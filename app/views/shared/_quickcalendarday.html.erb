@@ -1,0 +1,58 @@
+<div class="quick-calendar-component">
+  <div class="quick-calendar-picker datepicker" data-heroid="<%= @hero.id %>">
+    <i class="material-icons">chevron_left</i>
+  </div>
+  <%= link_to daily_journey_path(date: @daily_journey.date - 2) do %>
+  <div class="quick-calendar-day">
+        <div>
+          <p class="number"><%= (@daily_journey.date - 2).day %></p>
+        </div>
+        <div>
+          <p class="month"><%= (@daily_journey.date - 2).strftime("%b") %></p>
+        </div>
+  </div>
+  <% end %>
+  <%= link_to daily_journey_path(date: @daily_journey.date - 1) do %>
+  <div class="quick-calendar-day">
+        <div>
+          <p class="number"><%= (@daily_journey.date - 1).day %></p>
+        </div>
+        <div>
+          <p class="month"><%= (@daily_journey.date - 1).strftime("%b") %></p>
+        </div>
+  </div>
+  <% end %>
+  <%= link_to daily_journey_path(date: @daily_journey.date) do %>
+  <div class="quick-calendar-day-active">
+        <div>
+          <p class="number-active"><%= @daily_journey.date.day %></p>
+        </div>
+        <div>
+          <p class="month-active"><%= @daily_journey.date.strftime("%b") %></p>
+        </div>
+  </div>
+  <% end %>
+  <%= link_to daily_journey_path(date: @daily_journey.date + 1) do %>
+  <div class="quick-calendar-day">
+        <div>
+          <p class="number"><%= (@daily_journey.date + 1).day %></p>
+        </div>
+        <div>
+          <p class="month"><%= (@daily_journey.date + 1).strftime("%b") %></p>
+        </div>
+  </div>
+  <% end %>
+  <%= link_to daily_journey_path(date: @daily_journey.date + 2) do %>
+  <div class="quick-calendar-day">
+        <div>
+          <p class="number"><%= (@daily_journey.date + 2).day %></p>
+        </div>
+        <div>
+          <p class="month"><%= (@daily_journey.date + 2).strftime("%b") %></p>
+        </div>
+  </div>
+  <% end %>
+  <div class="quick-calendar-picker">
+    <i class="material-icons">chevron_right</i>
+  </div>
+</div>

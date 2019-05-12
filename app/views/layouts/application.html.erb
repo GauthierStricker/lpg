@@ -11,17 +11,14 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <div class="row">
-      <div class="col s0 m1" style="padding :0; background: #273146; height: 100vh;">
-      </div>
-      <div class="col s12 m11" style="padding :0">
-        <%= render 'shared/navbar' %>
+    <%= render 'shared/header' %>
     <div class="container">
+      <%= render 'shared/sidenav' %>
       <%= render 'shared/flashes' %>
       <%= yield %>
     </div>
-      </div>
-    </div>
+
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

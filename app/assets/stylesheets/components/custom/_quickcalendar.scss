@@ -1,0 +1,85 @@
+.quick-calendar-component {
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  margin-top:5px;
+}
+
+.quick-calendar-picker
+{
+  cursor:pointer;
+  height:55px;
+  width:25px;
+  color:white;
+  text-align:center;
+  margin-top:0px;
+  padding-top:15px !important;
+  margin-bottom:0px !important;
+}
+
+.quick-calendar-picker:hover {
+  color:#F1F3F4;
+}
+.quick-calendar-day {
+  //flex: 0 0 auto;
+  //margin:auto;
+  height:55px;
+  width:55px;
+  border-radius:50%;
+  color:white;
+  text-align:center;
+  margin-left:10px;
+  margin-right:10px;
+}
+.quick-calendar-day-active {
+  //flex: 0 0 auto;
+  //margin:auto;
+  height:55px;
+  width:55px;
+  border-radius:50%;
+  background-color:white;
+  color:#2196F3;
+  text-align:center;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+.number-active {
+    margin-top:0px;
+    font-size:1.30rem !important;
+    line-height:1 !important;
+    padding-top:10px !important;
+    margin-bottom:0px !important;
+  }
+
+.month-active {
+    font-size:0.8rem !important;
+    line-height:1 !important;
+    margin-top:0px !important;
+    margin-bottom:15px !important;
+  }
+
+.number {
+    margin-top:0px;
+    font-size:1.10rem !important;
+    line-height:1 !important;
+    padding-top:15px !important;
+    margin-bottom:0px !important;
+  }
+
+.month {
+    font-size:0.6rem !important;
+    line-height:1 !important;
+    margin-top:0px !important;
+    margin-bottom:15px !important;
+  }
+
+.number:hover {
+  color:#F1F3F4;
+}
+.month:hover {
+  color:#F1F3F4;
+}
+.quick-calendar-day-active:hover {
+  background-color:#F1F3F4;
+}

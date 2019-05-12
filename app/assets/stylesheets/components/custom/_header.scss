@@ -1,0 +1,33 @@
+.header-panel {
+  height:175px;
+  padding-left:200px;
+  padding-top:10px;
+  margin: 0px;
+  @extend .z-depth-1;
+}
+
+@media #{$medium-and-down} {
+  .header-panel {
+  padding-left: 0px;
+    }
+  }
+
+.header-card-main-container {
+  display:flex;
+  justify-content: center;
+  top:-30px;
+  position:relative;
+}
+.header-card-main-daily-journey {
+  @extend .z-depth-2;
+  height:100px;
+  width:500px;
+  flex: 0 0 auto;
+  }
+
+  .header-card-main-hero {
+  @extend .z-depth-2;
+  height:100px;
+  width:500px;
+  flex: 0 0 auto;
+  }

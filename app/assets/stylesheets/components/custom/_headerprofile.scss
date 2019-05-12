@@ -1,0 +1,9 @@
+.header-profile-component {
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+}
+
+.hero-avatar {
+  @extend .z-depth-2;
+}

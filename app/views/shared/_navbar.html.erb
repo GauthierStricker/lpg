@@ -1,38 +1,7 @@
  <nav>
     <div class="nav-wrapper">
-       <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-med-and-up"><i class="material-icons">menu</i></a>
+       <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-and-up"><i class="material-icons">menu</i></a>
       <a href="#" class="brand-logo center">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to "Home", root_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "Hero", hero_path(current_user.hero) %></li>
-        <% else %>
-        <li><%= link_to "Log in", new_user_session_path %></li>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-        <% end %>
-      </ul>
     </div>
   </nav>
 
-  <ul id="slide-out" class="sidenav">
-    <% if user_signed_in? %>
-      <li><div class="user-view">
-        <a href="#name"><span class="white-text name">John Doe</span></a>
-        <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-      </div></li>
-      <li><%= link_to "Home", root_path %></li>
-      <li><div class="divider"></div></li>
-      <li><a class="subheader">Lorem</a></li>
-      <li><%= link_to '<i class="material-icons">cloud</i> Hero'.html_safe, hero_path(current_user.hero), class: "waves-effect" %></li>
-      <li><%= link_to "Today", daily_journey_today_path, class: "waves-effect" %></li>
-      <li><a class="waves-effect" href="#!">Lorem</a></li>
-      <li><a class="waves-effect" href="#!">Lorem</a></li>
-      <li><a class="waves-effect" href="#!">Lorem</a></li>
-      <li><div class="divider"></div></li>
-      <li><%= link_to '<i class="material-icons">cloud</i> Log out'.html_safe, destroy_user_session_path, method: :delete, class: "waves-effect" %></li>
-    <% else %>
-      <li><%= link_to '<i class="material-icons">cloud</i> Log in'.html_safe, new_user_session_path %></li>
-      <li><%= link_to '<i class="material-icons">cloud</i> Sign up'.html_safe, new_user_registration_path %></li>
-    <% end %>
-  </ul>

@@ -1,0 +1,23 @@
+<div id="menu">
+      <ul id="slide-out" class="sidenav sidenav-fixed">
+        <% if user_signed_in? %>
+          <li><div class="user-view">
+            <a href="#name"><span class="white-text name">John Doe</span></a>
+            <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+          </div></li>
+          <li><%= link_to "Home", root_path %></li>
+          <li><div class="divider"></div></li>
+          <li><a class="subheader">Lorem</a></li>
+          <li><%= link_to '<i class="material-icons">cloud</i> Hero'.html_safe, hero_path(current_user.hero), class: "waves-effect" %></li>
+          <li><%= link_to "Today", daily_journey_today_path, class: "waves-effect" %></li>
+          <li><a class="waves-effect" href="#!">Lorem</a></li>
+          <li><a class="waves-effect" href="#!">Lorem</a></li>
+          <li><a class="waves-effect" href="#!">Lorem</a></li>
+          <li><div class="divider"></div></li>
+          <li><%= link_to '<i class="material-icons">cloud</i> Log out'.html_safe, destroy_user_session_path, method: :delete, class: "waves-effect" %></li>
+        <% else %>
+          <li><%= link_to '<i class="material-icons">cloud</i> Log in'.html_safe, new_user_session_path %></li>
+          <li><%= link_to '<i class="material-icons">cloud</i> Sign up'.html_safe, new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
