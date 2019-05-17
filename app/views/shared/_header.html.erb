@@ -1,9 +1,12 @@
 <div class="header-panel blue">
   <a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-and-up"><i class="material-icons" style="color:white;">menu</i></a>
-    <% if current_page?(daily_journey_path) %>
-      <%= render "shared/quickcalendarday"  %>
-    <% end %>
-    <% if current_page?(hero_path) %>
-      <%= render "shared/headerprofile"  %>
-    <% end %>
+<% if params[:controller] == 'daily_journeys' %>
+  <% if current_page?(daily_journey_path) %>
+    <%= render "shared/quickcalendarday"  %>
+  <% end %>
+<% elsif params[:controller] == 'heros' %>
+  <% if current_page?(hero_path) %>
+    <%= render "shared/headerprofile"  %>
+  <% end %>
+<% end %>
 </div>
